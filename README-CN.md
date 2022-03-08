@@ -3,16 +3,16 @@ Terraform module which creates microservice engine (MSE) gateway on Alibaba Clou
 terraform-alicloud-mse
 =====================================================================
 
-English | [简体中文](README-CN.md)
+[English](README.md) | 简体中文
 
-This module is used to create a microservice engine (MSE) gateway under Alibaba Cloud.
+本 Module 用于在阿里云自动化管理和配置MSE云原生网关，包括集群和网关。
 
-These types of resources are supported:
+本 Module 支持创建以下资源:
 
 * [alicloud_mse_cluster](https://registry.terraform.io/providers/aliyun/alicloud/latest/docs/resources/mse_cluster)
 * [alicloud_mse_gateway](https://registry.terraform.io/providers/aliyun/alicloud/latest/docs/resources/mse_gateway)
 
-## Usage
+## 用法
 
 ```hcl
 module "example" {
@@ -34,16 +34,16 @@ module "example" {
 }
 ```
 
-## Examples
+## 示例
 
-* [complete example](https://github.com/terraform-alicloud-modules/terraform-alicloud-mse/tree/main/examples/complete)
+* [Clickhouse 完整示例](https://github.com/terraform-alicloud-modules/terraform-alicloud-mse/tree/main/examples/complete)
 
-## Notes
+## 注意事项
 
-* This module using AccessKey and SecretKey are from `profile` and `shared_credentials_file`. If you have not set them
-  yet, please install [aliyun-cli](https://github.com/aliyun/aliyun-cli#installation) and configure it.
+* 本 Module 使用的 AccessKey 和 SecretKey 可以直接从 `profile` 和 `shared_credentials_file`
+  中获取。如果未设置，可通过下载安装 [aliyun-cli](https://github.com/aliyun/aliyun-cli#installation) 后进行配置.
 
-## Requirements
+## 要求
 
 | Name | Version |
 |------|---------|
@@ -56,22 +56,22 @@ module "example" {
 |------|---------|
 | <a name="provider_alicloud"></a> [alicloud](#provider\_alicloud) | > = 1.157.0 |
 
-## Submit Issues
+## 提交问题
 
-If you have any problems when using this module, please opening
-a [provider issue](https://github.com/aliyun/terraform-provider-alicloud/issues/new) and let us know.
+如果在使用该 Terraform Module
+的过程中有任何问题，可以直接创建一个 [Provider Issue](https://github.com/aliyun/terraform-provider-alicloud/issues/new)，我们将根据问题描述提供解决方案。
 
-**Note:** There does not recommend opening an issue on this repo.
+**注意:** 不建议在该 Module 仓库中直接提交 Issue。
 
-## Authors
+## 作者
 
 Created and maintained by Alibaba Cloud Terraform Team(terraform@alibabacloud.com).
 
-## License
+## 许可
 
 MIT Licensed. See LICENSE for full details.
 
-## Reference
+## 参考
 
 * [Terraform-Provider-Alicloud Github](https://github.com/aliyun/terraform-provider-alicloud)
 * [Terraform-Provider-Alicloud Release](https://releases.hashicorp.com/terraform-provider-alicloud/)
