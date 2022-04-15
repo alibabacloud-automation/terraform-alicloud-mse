@@ -5,24 +5,6 @@ variable "create_gateway" {
   default     = false
 }
 
-variable "vpc_id" {
-  description = "The ID of the vpc."
-  type        = string
-  default     = ""
-}
-
-variable "vswitch_id" {
-  description = "The ID of the vswitch."
-  type        = string
-  default     = ""
-}
-
-variable "backup_vswitch_id" {
-  description = "The backup vswitch id."
-  type        = string
-  default     = ""
-}
-
 variable "gateway_name" {
   description = "The name of the Gateway ."
   type        = string
@@ -44,6 +26,24 @@ variable "gateway_spec" {
     condition     = contains(["MSE_GTW_2_4_200_c", "MSE_GTW_4_8_200_c", "MSE_GTW_8_16_200_c", "MSE_GTW_16_32_200_c"], var.gateway_spec)
     error_message = "Allowed values are MSE_GTW_2_4_200_c , MSE_GTW_4_8_200_c , MSE_GTW_8_16_200_c or MSE_GTW_16_32_200_c."
   }
+}
+
+variable "vpc_id" {
+  description = "The ID of the vpc."
+  type        = string
+  default     = ""
+}
+
+variable "vswitch_id" {
+  description = "The ID of the vswitch."
+  type        = string
+  default     = ""
+}
+
+variable "backup_vswitch_id" {
+  description = "The backup vswitch id."
+  type        = string
+  default     = ""
 }
 
 variable "enterprise_security_group" {
@@ -83,6 +83,12 @@ variable "cluster_alias_name" {
   default     = ""
 }
 
+variable "cluster_vswitch_id" {
+  description = "The ID of the vswitch."
+  type        = string
+  default     = ""
+}
+
 variable "cluster_spec" {
   description = "Required,The engine specification of MSE Cluster. Valid values: MSE_SC_1_2_200_c:1C2G, MSE_SC_2_4_200_c:2C4G, MSE_SC_4_8_200_c:4C8G, MSE_SC_8_16_200_c:8C16G."
   type        = string
@@ -97,7 +103,7 @@ variable "cluster_spec" {
 variable "cluster_type" {
   description = "Required,The type of MSE Cluster.Valid values:ZooKeeper,Nacos-Ans,Eureka"
   type        = string
-  default     = "Eureka"
+  default     = "ZooKeeper"
 
   validation {
     condition     = contains(["ZooKeeper", "Nacos-Ans", "Eureka"], var.cluster_type)
@@ -108,7 +114,7 @@ variable "cluster_type" {
 variable "cluster_version" {
   description = "Required,The version of MSE Cluster."
   type        = string
-  default     = "EUREKA_1_9_3"
+  default     = "ZooKeeper_3_6_3"
 }
 
 variable "instance_count" {

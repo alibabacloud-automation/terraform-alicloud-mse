@@ -36,7 +36,7 @@ module "example" {
 
 ## 示例
 
-* [Clickhouse 完整示例](https://github.com/terraform-alicloud-modules/terraform-alicloud-mse/tree/main/examples/complete)
+* [MSE 完整示例](https://github.com/terraform-alicloud-modules/terraform-alicloud-mse/tree/main/examples/complete)
 
 ## 注意事项
 

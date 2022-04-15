@@ -1,4 +1,3 @@
-
 output "mse_cluster_id" {
   description = "The id of MSE Cluster."
   value       = concat(alicloud_mse_cluster.cluster.*.id, [""])[0]
