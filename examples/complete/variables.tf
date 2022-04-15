@@ -2,7 +2,7 @@
 variable "gateway_name" {
   description = "The name of the Gateway ."
   type        = string
-  default     = "tf_mse_gateway_name"
+  default     = "tf-testacc-gateway"
 }
 
 variable "enterprise_security_group" {
@@ -33,7 +33,7 @@ variable "delete_slb" {
 variable "cluster_alias_name" {
   description = "The alias of MSE Cluster."
   type        = string
-  default     = "tf_mse_cluster_name"
+  default     = "tf-testacc-cluster"
 }
 
 variable "acl_entry_list" {

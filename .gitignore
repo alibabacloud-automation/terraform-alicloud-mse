@@ -19,6 +19,6 @@
 # others
 *.bak
 *.bk
-
+**/.terraform/*
 .terraform.lock.hcl
 .terraform.tfstate.lock.info
