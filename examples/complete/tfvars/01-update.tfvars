@@ -7,4 +7,4 @@ delete_slb                = true
 
 #alicloud_mse_cluster
 cluster_alias_name = "update-tf-testacc-cluster"
-acl_entry_list     = ["127.0.0.1/10"]
+acl_entry_list     = ["127.0.0.0/10"]
