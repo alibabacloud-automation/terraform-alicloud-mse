@@ -26,6 +26,7 @@ resource "alicloud_mse_cluster" "cluster" {
   net_type                  = var.net_type
   pub_network_flow          = var.pub_network_flow
   acl_entry_list            = var.acl_entry_list
+  mse_version               = var.mse_version
   disk_type                 = var.disk_type
   private_slb_specification = var.private_slb_specification
   pub_slb_specification     = var.pub_slb_specification

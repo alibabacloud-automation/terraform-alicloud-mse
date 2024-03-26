@@ -1,10 +1,14 @@
+provider "alicloud" {
+  region = "cn-hangzhou"
+}
+
 data "alicloud_vpcs" "default" {
   name_regex = "default-NODELETING"
+  cidr_block = "172.16.0.0/16"
 }
 
 data "alicloud_vswitches" "default" {
-  name_regex = "default-zone-j"
-  vpc_id     = data.alicloud_vpcs.default.vpcs.0.id
+  vpc_id = data.alicloud_vpcs.default.vpcs.0.id
 }
 
 module "mse_gateway" {
@@ -38,17 +42,14 @@ module "mse_cluster" {
   #alicloud_mse_cluster
   create_cluster = true
 
-  cluster_alias_name        = var.cluster_alias_name
-  cluster_vswitch_id        = data.alicloud_vswitches.default.vswitches.2.id
-  cluster_spec              = "MSE_SC_1_2_200_c"
-  cluster_type              = "ZooKeeper"
-  cluster_version           = "ZooKeeper_3_6_3"
-  instance_count            = 1
-  net_type                  = "privatenet"
-  pub_network_flow          = "1"
-  acl_entry_list            = var.acl_entry_list
-  disk_type                 = "alicloud-disk-ssd"
-  private_slb_specification = "slb.s1.small"
-  pub_slb_specification     = "slb.s1.small"
-
+  cluster_alias_name = var.cluster_alias_name
+  cluster_vswitch_id = data.alicloud_vswitches.default.vswitches.2.id
+  cluster_spec       = "MSE_SC_1_2_60_c"
+  cluster_type       = "ZooKeeper"
+  cluster_version    = "ZooKeeper_3_8_0"
+  instance_count     = 1
+  net_type           = "privatenet"
+  pub_network_flow   = "1"
+  acl_entry_list     = var.acl_entry_list
+  mse_version        = "mse_dev"
 }
