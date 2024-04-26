@@ -90,13 +90,13 @@ variable "cluster_vswitch_id" {
 }
 
 variable "cluster_spec" {
-  description = "Required,The engine specification of MSE Cluster. Valid values: MSE_SC_1_2_200_c:1C2G, MSE_SC_2_4_200_c:2C4G, MSE_SC_4_8_200_c:4C8G, MSE_SC_8_16_200_c:8C16G."
+  description = "Required,The engine specification of MSE Cluster. Valid values: MSE_SC_1_2_60_c, MSE_SC_2_4_60_c, MSE_SC_4_8_60_c, MSE_SC_8_16_60_c, MSE_SC_16_32_60_c, MSE_SC_1_2_200_c:1C2G, MSE_SC_2_4_200_c:2C4G, MSE_SC_4_8_200_c:4C8G, MSE_SC_8_16_200_c:8C16G."
   type        = string
   default     = "MSE_SC_1_2_200_c"
 
   validation {
-    condition     = contains(["MSE_SC_1_2_200_c", "MSE_SC_2_4_200_c", "MSE_SC_4_8_200_c", "MSE_SC_8_16_200_c"], var.cluster_spec)
-    error_message = "Allowed values are MSE_SC_1_2_200_c or MSE_SC_2_4_200_c or MSE_SC_4_8_200_c or MSE_SC_8_16_200_c."
+    condition     = contains(["MSE_SC_1_2_60_c", "MSE_SC_2_4_60_c", "MSE_SC_4_8_60_c", "MSE_SC_8_16_60_c", "MSE_SC_16_32_60_c", "MSE_SC_1_2_200_c", "MSE_SC_2_4_200_c", "MSE_SC_4_8_200_c", "MSE_SC_8_16_200_c"], var.cluster_spec)
+    error_message = "Allowed values are MSE_SC_1_2_60_c, MSE_SC_2_4_60_c, MSE_SC_4_8_60_c, MSE_SC_8_16_60_c, MSE_SC_16_32_60_c, MSE_SC_1_2_200_c, MSE_SC_2_4_200_c, MSE_SC_4_8_200_c, MSE_SC_8_16_200_c."
   }
 }
 
@@ -147,19 +147,29 @@ variable "acl_entry_list" {
 }
 
 variable "disk_type" {
-  description = "The type of Disk."
+  description = "(Deprecated from version 1.1.0) The type of Disk."
   type        = string
   default     = "alicloud-disk-ssd"
 }
 
 variable "private_slb_specification" {
-  description = "The specification of private network SLB."
+  description = "(Deprecated from version 1.1.0) The specification of private network SLB."
   type        = string
   default     = "slb.s1.small"
 }
 
 variable "pub_slb_specification" {
-  description = "The specification of public network SLB."
+  description = "(Deprecated from version 1.1.0) The specification of public network SLB."
   type        = string
   default     = "slb.s1.small"
+}
+
+variable "mse_version" {
+  description = "The version of MSE."
+  type        = string
+  default     = "mse_dev"
+  validation {
+    condition     = contains(["mse_pro", "mse_dev", "mse_serverless"], var.mse_version)
+    error_message = "Allowed values are mse_pro, mse_dev, mse_serverless."
+  }
 }

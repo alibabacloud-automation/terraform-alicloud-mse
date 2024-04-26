@@ -33,7 +33,7 @@ variable "delete_slb" {
 variable "cluster_alias_name" {
   description = "The alias of MSE Cluster."
   type        = string
-  default     = "tf-testacc-cluster"
+  default     = "tf-example-cluster"
 }
 
 variable "acl_entry_list" {
